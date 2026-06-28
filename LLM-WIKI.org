@@ -1,0 +1,76 @@
+#+TITLE: LLM Wiki — 个人 AI 知识库
+#+DESCRIPTION: 基于 Karpathy LLM Wiki 理念，用 Emacs + org-roam + pi-coding-agent 构建
+#+ROAM_TAGS: project llm-wiki
+
+* 核心理念
+
+基于 [[https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f][Karpathy 的 LLM Wiki 理念]]，将碎片化信息编译成结构化、高度相互链接的 org-roam 知识网络。
+
+* 目录结构与权限边界
+
+| 目录 | 权限 | 用途 |
+|------|------|------|
+| =raw/= | 只读 | 原始素材收件箱，禁止修改/删除 |
+| =wiki/= | 读写 | 知识编译输出层，AI 专属工作区 |
+| =assets/= | 只读 | 媒体资源（图片、PDF、附件） |
+
+** raw/ 详细结构
+
+- =raw/articles/= —— 网页剪藏、技术文章
+- =raw/papers/= —— 论文、深度研报
+- =raw/transcripts/= —— 视频/播客转录
+- =raw/archive/= —— 已处理文件的归档
+
+** wiki/ 详细结构
+
+- =wiki/index.org= —— 全局内容字典，记录所有 wiki 页面及其一句话索引
+- =wiki/log.org= —— 行为流水线，以追加方式记录 ingest/query/lint 历史
+- =wiki/concepts/= —— 抽象层：方法论、架构模式、第一性原理
+- =wiki/entities/= —— 实体层：人名、公司、工具、项目
+- =wiki/sources/= —— 摘要层：针对 raw 文件的一对一核心观点提炼
+- =wiki/syntheses/= —— 综合层：多源交叉分析、复杂问题回答
+
+* org-roam 笔记规范
+
+** 文件结构
+
+所有 wiki 页面使用 org-mode 格式，顶部包含 ROAM 元数据：
+
+#+begin_src org
+,#+TITLE: EntityName
+,#+ROAM_TAGS: entity ai
+,#+DATE: 2026-01-01
+,#+filetags: :entity:
+
+* EntityName
+  定义与描述...
+
+** 关联链接
+  - [[id:uuid-xxx][RelatedConcept]]
+  - [[id:uuid-yyy][AnotherEntity]]
+#+end_src
+
+** 分类与命名
+
+- [[*Concepts][Concepts]]：TitleCase 命名，如 =AgentSkill.org=
+- [[*Entities][Entities]]：TitleCase 命名，如 =ClaudeCode.org=
+- [[*Sources][Sources]]：kebab-case 命名，如 =summary-claude-code-docs.org=
+- [[*Syntheses][Syntheses]]：kebab-case 命名，如 =analysis-karpathy-wiki.org=
+
+** 强制双向链接
+
+每个 wiki 页面必须包含 =** 关联链接= 章节，使用 org-roam 的 [[id:...][标题]] 链接。不允许产生孤岛页面。
+
+** 矛盾处理
+
+知识冲突时，不要静默覆盖。在页面中新建 =** 知识冲突= 区块，保留两种说法并做对比。
+
+* 工作流指令
+
+| 指令 | 用途 |
+|------|------|
+| =/ingest <路径>= | 读取 raw/ 文件，提炼写入 wiki/ |
+| =/query <问题>= | 搜索 wiki/ 内容后回答 |
+| =/lint= | 全局检查孤岛页面、死链、逻辑冲突 |
+
+具体流程见对应的 pi skill。

@@ -1,0 +1,48 @@
+#+TITLE: LLM Wiki — Emacs + org-roam + pi-coding-agent
+#+DESCRIPTION: Karpathy-style personal AI knowledge base
+
+[[https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f][Karpathy 的 LLM Wiki 理念]]的 Emacs/org-roam 实现，用 pi-coding-agent 作为 AI 智能体。
+
+## 安装
+
+```bash
+git clone https://github.com/tiancaijb/llm-wiki ~/projects/llm-wiki
+pip install llm-wiki  # 可选 CLI 工具（TODO）
+```
+
+Emacs 需要安装 org-roam（Doom Emacs 已内置）。
+
+## 目录结构
+
+```
+llm-wiki/
+├── .pi/AGENTS.md         ← pi 配置（工作流说明）
+├── LLM-WIKI.org          ← 项目入口文件（架构规范）
+├── raw/                  ← 原始资料收件箱（只读）
+│   ├── articles/
+│   ├── papers/
+│   ├── transcripts/
+│   └── archive/
+├── wiki/                 ← 知识编译输出层
+│   ├── index.org         ← 全局内容字典
+│   ├── log.org           ← 操作日志
+│   ├── concepts/         ← 概念、框架、方法论
+│   ├── entities/         ← 人物、公司、工具
+│   ├── sources/          ← 原始素材摘要
+│   └── syntheses/        ← 多源综合
+└── assets/               ← 媒体资源
+```
+
+## 使用
+
+| 命令 | 作用 |
+|------|------|
+| =/ingest raw/articles/xxx.org= | 将资料摄入知识库 |
+| =/query 什么是xxx= | 提问并查询知识库 |
+| =/lint= | 巡检知识库健康度 |
+
+具体流程由 pi skill（=llm-wiki=）接管。
+
+## License
+
+MIT

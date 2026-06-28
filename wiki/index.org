@@ -1,0 +1,17 @@
+#+TITLE: Wiki Index
+#+ROAM_TAGS: index
+
+* Wiki Index
+  知识库全局内容字典。
+
+** Concepts (概念)
+暂无
+
+** Entities (实体)
+暂无
+
+** Sources (摘要)
+暂无
+
+** Syntheses (综合)
+暂无

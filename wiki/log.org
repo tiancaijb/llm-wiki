@@ -1,0 +1,5 @@
+#+TITLE: 操作日志
+#+ROAM_TAGS: log
+
+* 操作日志
+  Append-only 日志，记录所有 wiki 操作。
