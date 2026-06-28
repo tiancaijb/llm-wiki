@@ -2,16 +2,16 @@
 #+ROAM_TAGS: index
 
 * Wiki Index
-  知识库全局内容字典。
 
-** Concepts (概念)
-暂无
+** Concepts
+   - [[file:concepts/LLM_Wiki.org][LLM Wiki]] — Karpathy 的个人知识库理念
 
-** Entities (实体)
-暂无
+** Entities
+   - [[file:entities/Karpathy.org][Andrej Karpathy]] — 前 OpenAI 联合创始人
+   - [[file:entities/Claude_Code.org][Claude Code]] — Anthropic AI 编码智能体
 
-** Sources (摘要)
-暂无
+** Sources
+   - [[file:../raw/transcripts/2026-06-28-karpathy-llm-wiki-tutorial.org][Karpathy LLM Wiki 搭建教程]] — 杰森的效率工坊视频
 
-** Syntheses (综合)
-暂无
+** Syntheses
+   暂无

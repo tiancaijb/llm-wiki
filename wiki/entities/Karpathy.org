@@ -1,0 +1,14 @@
+#+TITLE: Andrej Karpathy
+#+ROAM_TAGS: entity ai openai
+#+DATE: 2026-06-28
+#+filetags: :entity:
+
+* Andrej Karpathy
+  前 OpenAI 联合创始人，前特斯拉 AI Director。
+
+** 贡献
+   - LLM Wiki 知识库理念
+   - AI 教育与开源贡献
+
+** 关联链接
+   - [[file:../concepts/LLM_Wiki.org][LLM Wiki]]

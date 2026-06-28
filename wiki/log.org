@@ -2,4 +2,7 @@
 #+ROAM_TAGS: log
 
 * 操作日志
-  Append-only 日志，记录所有 wiki 操作。
+
+** [2026-06-28] ingest | Karpathy LLM Wiki 知识库搭建教程（视频 BV1k6QvBYEVA）
+   - 变更: 新增 [[file:concepts/LLM_Wiki.org][LLM Wiki]], [[file:entities/Karpathy.org][Karpathy]], [[file:entities/Claude_Code.org][Claude Code]]; 更新 [[file:index.org][index]]
+   - 冲突: 无
