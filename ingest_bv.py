@@ -23,7 +23,7 @@ from pathlib import Path
 
 import requests
 
-WIKI_ROOT = Path.home() / "projects" / "llm-wiki"
+WIKI_ROOT = Path.home() / "org" / "roam" / "llm-wiki"
 CACHE_DIR = Path.home() / ".bilibili-subtitles"
 API_BASE = os.environ.get("LLM_API_BASE", "https://api.deepseek.com/v1")
 MODEL = os.environ.get("LLM_MODEL", "deepseek-chat")
@@ -227,6 +227,11 @@ def main():
     bvid = args.bvid.upper()
     if not bvid.startswith("BV"):
         bvid = "BV" + bvid
+    # BV 号大小写敏感，只确保前缀 BV
+    if not bvid.startswith("BV"):
+        bvid = "BV" + args.bvid
+    else:
+        bvid = "BV" + args.bvid[2:]  # 保留原始大小写
 
     print(f"🎬 {bvid}", file=sys.stderr)
 
