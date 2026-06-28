@@ -1,31 +1,27 @@
+:PROPERTIES:
+:ID:       e7b3d0f2-0002-4000-9000-000000000002
+:END:
 #+TITLE: Karpathy LLM Wiki 知识库搭建教程
 #+ROAM_TAGS: source video llm-wiki karpathy
 #+DATE: 2026-06-28
-#+filetags: :source:video:
 
 * Karpathy LLM Wiki 知识库搭建教程
   UP主: 杰森的效率工坊 | BV: BV1k6QvBYEVA
 
 ** 核心理念
-   - 知识复利：AI 将学习资料编译为 Wiki 笔记库，每次学习积累到知识库
-   - 比传统 RAG 更持久：有记忆、有积累、永久知识库
+- 知识复利：AI 将学习资料编译为 Wiki 笔记库，每次学习积累到知识库
+- 比传统 RAG 更持久：有记忆、有积累、永久知识库
 
 ** 三层架构
-   - /Raw/ —— 原始资料层（剪藏、论文、转录）
-   - /Wiki/ —— AI 编译的笔记库（摘要、实体、索引）
-   - /Schema/ —— 智能体配置层（AGENTS.md / SKILL.md）
+- /Raw/ —— 原始资料层（剪藏、论文、转录）
+- /Wiki/ —— AI 编译的笔记库（摘要、实体、索引）
+- /Schema/ —— 智能体配置层（AGENTS.md / SKILL.md）
 
 ** 三个核心操作
-   - /ingest —— 消化原始资料 → 写入 Wiki
-   - /query —— 先读 index 定位 → 回答 → 有价值内容存回知识库
-   - /lint —— 检查孤岛页面、死链、知识冲突（报告模式，确认后修复）
-
-** 项目结构
-   - raw/（文章/论文/转录/归档）
-   - wiki/（index.md, log.md, concepts/, entities/, sources/, syntheses/）
-   - assets/（媒体资源）
-   - .claude/skills/（ingest, query, lint 技能）
+- /ingest —— 消化原始资料 → 写入 Wiki
+- /query —— 先读 index 定位 → 回答 → 有价值内容存回知识库
+- /lint —— 检查孤岛页面、死链、知识冲突（报告模式，确认后修复）
 
 ** 关联链接
-   - [[id:uuid-placeholder][LLM-Wiki]]
-   - [[id:uuid-placeholder][Karpathy]]
+- [[id:d80ab2da-6f71-5997-9c25-9c5c4eb699d8][LLM Wiki]]
+- [[id:ac0fb35d-ad29-578f-bd1b-2e0567dc8cb0][Karpathy]]

@@ -1,24 +1,26 @@
+:PROPERTIES:
+:ID:       d80ab2da-6f71-5997-9c25-9c5c4eb699d8
+:END:
 #+TITLE: LLM Wiki
 #+ROAM_TAGS: concept knowledge-management wiki
 #+DATE: 2026-06-28
-#+filetags: :concept:
 
-* LLM Wiki
-  Karpathy 提出的一种个人知识库理念，区别于传统 RAG。
+Karpathy 提出的一种个人知识库理念，区别于传统 RAG。
 
 ** 核心理念
-   - 将碎片化信息编译为结构化、高度相互链接的笔记网络
-   - AI 负责节点编织，人类负责高价值筛选与战略提问
-   - 知识复利：每次学习积累到知识库
+- 将碎片化信息编译为结构化、高度相互链接的笔记网络
+- AI 负责节点编织，人类负责高价值筛选与战略提问
+- 知识复利：每次学习积累到知识库
 
 ** 与 RAG 对比
-   - RAG：每次重新搜索，无记忆
-   - LLM Wiki：持久化维护，持续积累
+- RAG：每次重新搜索，无记忆
+- LLM Wiki：持久化维护，持续积累
 
 ** 三层架构
-   1. Raw —— 原始资料收件箱（只读）
-   2. Wiki —— AI 编译的笔记库（读写）
-   3. Schema —— 智能体配置层
+1. Raw —— 原始资料收件箱（只读）
+2. Wiki —— AI 编译的笔记库（读写）
+3. Schema —— 智能体配置层（AGENTS.md / SKILL.md）
 
 ** 关联链接
-   - [[file:../../raw/transcripts/2026-06-28-karpathy-llm-wiki-tutorial.org][Karpathy LLM Wiki 搭建教程]]
+- [[id:ac0fb35d-ad29-578f-bd1b-2e0567dc8cb0][Karpathy]] — 理念提出者
+- [[id:34ed5db8-8b0f-5434-b355-de482ca04f63][Claude Code]] — AI 智能体工具

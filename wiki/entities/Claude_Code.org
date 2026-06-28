@@ -1,15 +1,16 @@
+:PROPERTIES:
+:ID:       34ed5db8-8b0f-5434-b355-de482ca04f63
+:END:
 #+TITLE: Claude Code
 #+ROAM_TAGS: entity ai tool claude agent
 #+DATE: 2026-06-28
-#+filetags: :entity:
 
-* Claude Code
-  Anthropic 推出的 AI 编码智能体，支持自定义 skill 和 CLAUDE.md 配置。
+Anthropic 推出的 AI 编码智能体，支持自定义 skill 和 CLAUDE.md 配置。
 
 ** 在 LLM Wiki 中的作用
-   - 作为 AI 智能体执行 ingest/query/lint 操作
-   - 通过 CLAUDE.md 定义工作流和权限边界
-   - 通过 .claude/skills/ 定义可复用的 skill
+- 作为 AI 智能体执行 ingest/query/lint 操作
+- 通过 CLAUDE.md 定义工作流和权限边界
+- 通过 .claude/skills/ 定义可复用 skill
 
 ** 关联链接
-   - [[file:../concepts/LLM_Wiki.org][LLM Wiki]]
+- [[id:d80ab2da-6f71-5997-9c25-9c5c4eb699d8][LLM Wiki]]
