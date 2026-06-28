@@ -267,8 +267,17 @@ def main():
     roam_link = f"[[id:{uid}][{title}]]"
     print(f"\n✅ 完成！org-roam 链接:", file=sys.stderr)
     print(f"   {roam_link}", file=sys.stderr)
+    print(f"   文件: {WIKI_ROOT / 'sources' / filename}", file=sys.stderr)
     # 输出到 stdout 方便复制
     print(roam_link)
+    # 用 emacsclient 分窗打开（不抢占 pi 的 buffer）
+    filepath = WIKI_ROOT / 'sources' / filename
+    if filepath.exists():
+        import subprocess
+        escaped = str(filepath).replace('"', '\"')
+        subprocess.Popen(["emacsclient", "-n", "-e",
+                          f'(find-file-other-window "{escaped}")'],
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
 if __name__ == "__main__":
