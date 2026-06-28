@@ -40,22 +40,25 @@ def get_api_key() -> str:
 
 
 def download_subtitle(bvid: str) -> dict:
-    """调用 bili-subtitle 下载，返回字幕数据。"""
+    """调用 bili-subtitle 下载字幕，失败则尝试读缓存。"""
+    import subprocess
     result = subprocess.run(
         ["bili-subtitle", bvid, "--json"],
         capture_output=True, text=True, timeout=120,
     )
-    if result.returncode != 0:
-        print(f"❌ 下载失败: {result.stderr}", file=sys.stderr)
-        sys.exit(1)
-
+    if result.returncode == 0:
+        json_path = CACHE_DIR / f"{bvid}.json"
+        if json_path.exists():
+            with open(json_path, encoding="utf-8") as f:
+                return json.load(f)
+    # 失败时尝试读缓存
     json_path = CACHE_DIR / f"{bvid}.json"
-    if not json_path.exists():
-        print(f"❌ 未找到 {json_path}", file=sys.stderr)
-        sys.exit(1)
-
-    with open(json_path, encoding="utf-8") as f:
-        return json.load(f)
+    if json_path.exists():
+        print(f"  📦 使用缓存: {json_path}", file=sys.stderr)
+        with open(json_path, encoding="utf-8") as f:
+            return json.load(f)
+    print(f"❌ 下载失败: {result.stderr}", file=sys.stderr)
+    sys.exit(1)
 
 
 def summarize_with_llm(title: str, subtitles: list, key: str) -> str:
@@ -128,6 +131,9 @@ def summarize_with_llm(title: str, subtitles: list, key: str) -> str:
 def slugify(text: str, max_len: int = 40) -> str:
     """从标题生成简短英文 slug。"""
     import re
+    # 如果标题是 BV 号，尝试用前几个中文字
+    if text.startswith("BV"):
+        return text.lower()
     slug = re.sub(r"[^\w\s-]", "", text.lower())
     slug = re.sub(r"[\s_]+", "-", slug.strip())[:max_len]
     return slug.strip("-")
@@ -258,8 +264,11 @@ def main():
     # 5. git commit
     git_commit(bvid, title)
 
-    print(f"\n✅ 完成！笔记已存入 LLM Wiki:", file=sys.stderr)
-    print(f"   {WIKI_ROOT}/wiki/sources/{filename}", file=sys.stderr)
+    roam_link = f"[[id:{uid}][{title}]]"
+    print(f"\n✅ 完成！org-roam 链接:", file=sys.stderr)
+    print(f"   {roam_link}", file=sys.stderr)
+    # 输出到 stdout 方便复制
+    print(roam_link)
 
 
 if __name__ == "__main__":
